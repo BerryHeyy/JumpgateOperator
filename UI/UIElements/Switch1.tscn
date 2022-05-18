@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/UI/Switch1Off.tres" type="Texture" id=1]
+[ext_resource path="res://UI/UIElements/SwitchController.cs" type="Script" id=2]
+[ext_resource path="res://Sprites/UI/Switch1On.tres" type="Texture" id=3]
+
+[node name="Switch1" type="TextureRect"]
+margin_right = 16.0
+margin_bottom = 32.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+onTexture = ExtResource( 3 )
+offTexture = ExtResource( 1 )
