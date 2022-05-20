@@ -15,6 +15,7 @@ public class LeverController : TextureRect
     private bool mousePressed = false;
     private float pushProgress;
     private float lastPushProgress = -1;
+    private Vector2 mousePosBeforeMBDown;
 
     public override void _Ready()
     {
@@ -38,6 +39,16 @@ public class LeverController : TextureRect
         if (@event.GetType() == typeof(InputEventMouseButton))
         {
             if (((InputEventMouseButton) @event).ButtonIndex == 1) mousePressed = ((InputEventMouseButton) @event).Pressed;
+
+            if (mousePressed)
+            {
+                Input.SetMouseMode(Input.MouseMode.Hidden);
+            }
+            else
+            {
+                Input.SetMouseMode(Input.MouseMode.Visible);
+                GetViewport().WarpMouse(leverSprite.RectGlobalPosition + leverSprite.RectSize / 2);
+            }
         }
         else if (@event.GetType() == typeof(InputEventMouseMotion) && mousePressed)
         {
@@ -47,7 +58,6 @@ public class LeverController : TextureRect
             {
                 updateLeverSprite();
                 EmitSignal(nameof(PushProgressChanged), pushProgress);
-                GD.Print(pushProgress);
             }
 
             lastPushProgress = pushProgress;
