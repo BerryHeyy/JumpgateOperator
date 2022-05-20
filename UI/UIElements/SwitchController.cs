@@ -36,7 +36,7 @@ public class SwitchController : TextureRect
                 if (prevState != state) 
                 {
                     GD.Print(state);
-                    EmitSignal("SwitchToggled", state);
+                    EmitSignal(nameof(SwitchToggled), state);
                 }
 
                 prevState = state;
