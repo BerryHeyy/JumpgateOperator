@@ -14,7 +14,10 @@ anchor_bottom = 0.9
 margin_right = 6.10352e-05
 color = Color( 0.203922, 0.239216, 0.34902, 1 )
 
-[node name="Switch1" parent="ColorRect" instance=ExtResource( 1 )]
-margin_right = 0.0
-margin_bottom = 0.0
+[node name="InteractiveArea" type="ReferenceRect" parent="ColorRect"]
+anchor_right = 0.3
+anchor_bottom = 1.0
+border_color = Color( 0.152941, 0.203922, 0.266667, 1 )
+
+[node name="Switch1" parent="ColorRect/InteractiveArea" instance=ExtResource( 1 )]
 rect_scale = Vector2( 2, 2 )
