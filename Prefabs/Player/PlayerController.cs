@@ -46,18 +46,18 @@ public class PlayerController : KinematicBody2D
     }
 
     public override void _UnhandledInput(InputEvent @event){
-    if (@event is InputEventMouseButton){
-        InputEventMouseButton emb = (InputEventMouseButton)@event;
-        if (emb.IsPressed()){
-            if (emb.ButtonIndex == (int)ButtonList.WheelUp){
-                zoomLevel = Mathf.Clamp(zoomLevel - zoomStep, minZoom, maxZoom);
-                playerCamera.Zoom = new Vector2(zoomLevel, zoomLevel);
-            }
-            if (emb.ButtonIndex == (int)ButtonList.WheelDown){
-                zoomLevel = Mathf.Clamp(zoomLevel + zoomStep, minZoom, maxZoom);
-                playerCamera.Zoom = new Vector2(zoomLevel, zoomLevel);
+        if (@event is InputEventMouseButton){
+            InputEventMouseButton emb = (InputEventMouseButton)@event;
+            if (emb.IsPressed()){
+                if (emb.ButtonIndex == (int)ButtonList.WheelUp){
+                    zoomLevel = Mathf.Clamp(zoomLevel - zoomStep, minZoom, maxZoom);
+                    playerCamera.Zoom = new Vector2(zoomLevel, zoomLevel);
+                }
+                if (emb.ButtonIndex == (int)ButtonList.WheelDown){
+                    zoomLevel = Mathf.Clamp(zoomLevel + zoomStep, minZoom, maxZoom);
+                    playerCamera.Zoom = new Vector2(zoomLevel, zoomLevel);
+                }
             }
         }
     }
-}
 }

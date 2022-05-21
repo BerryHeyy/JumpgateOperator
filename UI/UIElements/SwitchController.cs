@@ -5,10 +5,8 @@ public class SwitchController : TextureRect
 {
     [Signal] public delegate void SwitchToggled(bool state);
 
-    [Export]
-    public Texture onTexture;
-    [Export]
-    public Texture offTexture;
+    [Export] public Texture onTexture;
+    [Export] public Texture offTexture;
 
     private bool state = false;
     private bool prevState = false;
