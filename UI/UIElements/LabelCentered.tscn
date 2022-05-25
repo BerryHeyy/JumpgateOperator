@@ -1,0 +1,19 @@
+[gd_scene format=2]
+
+[node name="ReferenceRect" type="ViewportContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1920, 1080 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Viewport"]
+
+[node name="Control" type="Control" parent="Viewport/CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Viewport/CanvasLayer/Control"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Booba"
