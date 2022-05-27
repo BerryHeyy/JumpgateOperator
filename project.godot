@@ -24,6 +24,10 @@ config/name="JumpgateOperator"
 run/main_scene="res://Scenes/MainGame.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Galaxy="*res://Scripts/SolarMap/Galaxy.cs"
+
 [display]
 
 window/size/width=1920

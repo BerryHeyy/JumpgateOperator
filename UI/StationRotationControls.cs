@@ -3,21 +3,27 @@ using System;
 
 public class StationRotationControls : Node
 {
+    [Export] Texture planetTexture;
     [Export] NodePath mapViewportPath;
-    Viewport mapViewport;
+    Viewport mapViewport;    
 
     public override void _Ready()
     {
         mapViewport = GetNode<Viewport>(mapViewportPath);
+
+        SetupMap();
     }
 
-    public override void _Process(float delta)
+    private void SetupMap()
     {
-        RenderMap(delta);
-    }
+        foreach (SolarSystem solarSystem in Galaxy.solarSystems)
+        {
+            Sprite newSprite = new Sprite();
+            newSprite.Position = solarSystem.Position;
+            newSprite.Texture = planetTexture;
+            newSprite.Scale = new Vector2(0.25f, 0.25f);
 
-    private void RenderMap(float delta)
-    {
-        
+            mapViewport.AddChild(newSprite);
+        }
     }
 }

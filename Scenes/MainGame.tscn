@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Prefabs/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/Structure.tres" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Prefabs/RingControlConsole.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/StationRotationControls.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/skybox.png" type="Texture" id=7]
+[ext_resource path="res://UI/RingControls.tscn" type="PackedScene" id=8]
 
 [node name="MainGame" type="Node2D"]
 
@@ -121,6 +122,9 @@ position = Vector2( 0, -176 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="StationRotationControls" parent="UI" instance=ExtResource( 6 )]
+visible = false
+
+[node name="RingControls" parent="UI" instance=ExtResource( 8 )]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -13

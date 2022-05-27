@@ -1,18 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sprites/UI/GUI_NinePatches2.png" type="Texture" id=1]
-[ext_resource path="res://UI/Fonts/Circo128.tres" type="DynamicFont" id=2]
-[ext_resource path="res://UI/UIElements/LeverSetup1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/UI/StationIndicator.png" type="Texture" id=4]
-[ext_resource path="res://UI/StationRotationControls.cs" type="Script" id=5]
-[ext_resource path="res://Sprites/UI/SolMap_Star.png" type="Texture" id=6]
+[ext_resource path="res://UI/3DScreens/RingControlScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/UI/GUI_NinePatches2.png" type="Texture" id=2]
+[ext_resource path="res://UI/Fonts/Circo128.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UI/RingControlScreen.cs" type="Script" id=4]
 
-[node name="StationRotationControls" type="Control"]
+[node name="RingControls" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 5 )
-planetTexture = ExtResource( 6 )
-mapViewportPath = NodePath("ScreenBackground/VisArea/NinePatchRect/ViewportContainer/Viewport")
+script = ExtResource( 4 )
+ringViewportPath = NodePath("ScreenBackground/VisArea/NinePatchRect/ViewportContainer/Viewport")
 
 [node name="ScreenBackground" type="ColorRect" parent="."]
 anchor_left = 0.1
@@ -26,7 +23,7 @@ color = Color( 0.294118, 0.301961, 0.32549, 1 )
 self_modulate = Color( 0.470588, 0.462745, 0.494118, 1 )
 anchor_right = 0.3
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -40,7 +37,7 @@ margin_left = 3.0
 margin_top = 3.0
 margin_right = -3.0
 margin_bottom = -3.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -50,8 +47,8 @@ patch_margin_bottom = 6
 margin_right = 2270.0
 margin_bottom = 400.0
 rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = ExtResource( 2 )
-text = "Station Rotation Controls"
+custom_fonts/font = ExtResource( 3 )
+text = "Ring Controls"
 align = 1
 valign = 1
 
@@ -60,15 +57,12 @@ anchor_top = 0.1
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="LeverSetup1" parent="ScreenBackground/InteractArea/ControlsArea" instance=ExtResource( 3 )]
-rect_scale = Vector2( 1.5, 1.5 )
-
 [node name="VisArea" type="NinePatchRect" parent="ScreenBackground"]
 self_modulate = Color( 0.470588, 0.462745, 0.494118, 1 )
 anchor_left = 0.3
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -76,11 +70,11 @@ patch_margin_bottom = 6
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ScreenBackground/VisArea"]
 self_modulate = Color( 0.470588, 0.462745, 0.494118, 1 )
-anchor_left = 0.5
+anchor_left = 0.1
 anchor_top = 0.1
-anchor_right = 0.95
-anchor_bottom = 0.9
-texture = ExtResource( 1 )
+anchor_right = 0.55
+anchor_bottom = 0.4
+texture = ExtResource( 2 )
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -98,23 +92,17 @@ color = Color( 0, 0, 0, 1 )
 [node name="ViewportContainer" type="ViewportContainer" parent="ScreenBackground/VisArea/NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 6.0
-margin_top = 6.0
-margin_right = -6.0
-margin_bottom = -6.0
+margin_left = 6.59985
+margin_top = 5.60001
+margin_right = 5.75983
+margin_bottom = 5.39999
 
 [node name="Viewport" type="Viewport" parent="ScreenBackground/VisArea/NinePatchRect/ViewportContainer"]
-size = Vector2( 471, 679 )
+size = Vector2( 472, 247 )
 transparent_bg = true
 handle_input_locally = false
 hdr = false
-disable_3d = true
-usage = 0
 render_target_update_mode = 3
 gui_disable_input = true
 
-[node name="Sprite" type="Sprite" parent="ScreenBackground/VisArea/NinePatchRect/ViewportContainer/Viewport"]
-texture = ExtResource( 4 )
-
-[node name="Camera2D" type="Camera2D" parent="ScreenBackground/VisArea/NinePatchRect/ViewportContainer/Viewport"]
-current = true
+[node name="RingControlScreen" parent="ScreenBackground/VisArea/NinePatchRect/ViewportContainer/Viewport" instance=ExtResource( 1 )]
