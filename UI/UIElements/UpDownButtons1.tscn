@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/UI/UpDownButtons1Base.tres" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/UpDownButtons1DownOverlay.tres" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/UpDownButtons1UpOverlay.tres" type="Texture" id=3]
+[ext_resource path="res://UI/UIElements/UpDownButtons1.cs" type="Script" id=4]
+
+[node name="TextureBase" type="TextureRect"]
+texture = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="ButtonUp" type="TextureButton" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 15.0
+margin_bottom = 16.0
+
+[node name="ButtonDown" type="TextureButton" parent="."]
+margin_left = 1.0
+margin_top = 16.0
+margin_right = 15.0
+margin_bottom = 31.0
+
+[node name="TextureUp" type="TextureRect" parent="."]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="TextureDown" type="TextureRect" parent="."]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="InitialTimer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
+[node name="FastIncrementTimer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true

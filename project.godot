@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Galaxy="*res://Scripts/SolarMap/Galaxy.cs"
+Jumpgate="*res://Scripts/Jumpgate/Jumpgate.cs"
 
 [display]
 
